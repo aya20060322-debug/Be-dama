@@ -55,7 +55,7 @@ function settings(){
 
         row.innerHTML=
         `<input aria-label="項目名" value="${clean(t.name)}">
-        <input aria-label="個数" type="number" min="1" max="100" value="${t.points}">
+        <input aria-label="個数" type="number" min="0" max="100" value="${t.points}">
         <select aria-label="色">
             <option value="green">緑</option>
             <option value="blue">青</option>
