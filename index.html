@@ -1,73 +1,9 @@
-<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#1d6aa5">
-  <title>ビー玉コレクション</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main id="app">
-    <section id="home" class="screen active" aria-labelledby="home-title">
-      <div class="sky scene">
-        <div class="cloud c1"></div><div class="cloud c2"></div>
-        <div class="mountains"></div>
-        <div class="home-content">
-          <p class="catch">やってみよう、つづけてみよう！</p>
-          <h1 id="home-title">ビー玉コレクション</h1>
-          <div class="home-grid">
-            <article class="status-card">
-              <strong>集めたビー玉</strong>
-              <p><span id="count">0</span> / <span id="goalText">100</span> 個</p>
-              <div class="progress"><i id="bar"></i></div>
-              <small>あと <b id="remaining">100</b> 個で達成！</small>
-            </article>
-            <div class="jar" aria-label="ビー玉のびん"><div id="marbles" class="marbles"></div></div>
-          </div>
-          <div class="main-actions">
-            <button class="big blue" data-go="tasks">📋 やることをみる <span>›</span></button>
-            <button class="big green" data-go="settings">⚙️ 設定を変更する <span>›</span></button>
-          </div>
-          <p class="message">コツコツつみかさねて、自分だけのビー玉コレクションを完成させよう！</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="tasks" class="screen page" aria-labelledby="tasks-title">
-      <header><button class="back" data-go="home">← ホームに戻る</button><button class="add" id="quickAdd">＋ 項目を追加</button></header>
-      <h2 id="tasks-title">やることリスト</h2><p class="sub">項目を達成して、ビー玉を集めよう！</p>
-      <div id="taskList" class="task-list"></div>
-    </section>
-
-    <section id="settings" class="screen page" aria-labelledby="settings-title">
-      <header><button class="back" data-go="home">← ホームに戻る</button></header>
-      <h2 id="settings-title">設定</h2><p class="sub">項目の内容と、もらえるビー玉の数を変更できます。</p>
-      <div id="settingList" class="setting-list"></div>
-      <button class="outline" id="addTask">＋ 新しい項目を追加</button>
-      <div class="goal-setting"><label for="goal">目標のビー玉数</label><input id="goal" type="number" min="1" max="999"><span>個</span></div>
-      <button class="save" id="saveSettings">保存する</button>
-    </section>
-
-    <section id="complete" class="screen complete" aria-labelledby="complete-title">
-      <div class="rays"><div class="confetti">◆ ● ★ ◆ ● ★ ◆</div>
-        <h2 id="complete-title">やったー！</h2><p class="hundred"><span id="completeGoal">100</span><b>個 達成！</b></p>
-        <div class="jar full"><div class="full-marbles">🔵 🟡 🟢 🔴 🔵<br>🟢 🔴 🔵 🟡 🟢<br>🟡 🔵 🟢 🔴 🟡</div></div>
-        <p>よくがんばった！<br>コツコツつみかさねて目標を達成できました！</p>
-        <button class="big blue restart" id="restart">つぎのコレクションをはじめる ›</button>
-      </div>
-    </section>
-  </main>
-
-  <dialog id="taskDialog">
-    <form method="dialog" id="taskForm"><h3 id="dialogTitle">項目を追加</h3>
-      <label>やること<input id="taskName" maxlength="40" required placeholder="例：宿題をする"></label>
-      <label>もらえるビー玉<input id="taskPoints" type="number" min="1" max="100" required value="5"></label>
-      <label>ビー玉の色<select id="taskColor"><option value="green">みどり</option><option value="blue">あお</option><option value="yellow">きいろ</option><option value="red">あか</option></select></label>
-      <div class="dialog-actions"><button value="cancel" class="back">キャンセル</button><button value="default" id="dialogSave" class="save">決定</button></div>
-    </form>
-  </dialog>
-  <div id="toast" role="status"></div>
-  <script src="app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#72d6f3"><title>ビー玉コレクション</title><link rel="stylesheet" href="./style.css"></head><body>
+<div id="app">
+<section id="home" class="screen active"><div class="world"><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div><div class="hill h1"></div><div class="hill h2"></div><main class="home-wrap"><p class="catch">やってみよう、つづけてみよう！</p><h1>ビー玉<br class="sp">コレクション</h1><div class="dashboard"><article class="counter card"><span>集めたビー玉</span><div><b id="count">0</b><strong> / <i id="goalLabel">100</i> 個</strong></div><div class="progress"><span id="progressBar"></span></div><p>あと <b id="remaining">100</b> 個で達成！</p></article><div class="jar-wrap"><div class="jar"><div class="rim"></div><div class="shine"></div><div id="jarMarbles" class="jar-marbles"></div></div></div></div><nav class="home-actions"><button class="primary" data-screen="tasks"><span>▣</span> やることをみる <b>›</b></button><button class="secondary" data-screen="settings"><span>⚙</span> 設定を変更する <b>›</b></button></nav><p class="note">コツコツつみかさねて、<br class="sp">自分だけのビー玉コレクションを完成させよう！</p></main><div class="table"></div></div></section>
+<section id="tasks" class="screen page"><header><button class="back" data-screen="home">← ホーム</button><button class="add" id="openAdd">＋ 項目を追加</button></header><div class="page-title"><span>今日もコツコツ！</span><h2>やることリスト</h2><p>できた項目を押して、ビー玉を集めよう！</p></div><div id="taskList" class="task-list"></div></section>
+<section id="settings" class="screen page"><header><button class="back" data-screen="home">← ホーム</button></header><div class="page-title"><span>自分用にカスタマイズ</span><h2>設定</h2><p>項目名、ビー玉の数、色を変更できます。</p></div><div id="settingsList" class="settings-list"></div><button class="add-row" id="addRow">＋ 新しい項目を追加</button><section class="goal-box"><label>目標のビー玉数<input id="goalInput" type="number" min="1" max="999"><small>個</small></label><p>おすすめは100個です</p></section><button class="save" id="saveSettings">設定を保存する</button></section>
+<section id="complete" class="screen complete"><canvas id="confetti"></canvas><div class="complete-inner"><p class="yay">やったー！</p><h2><b id="completeNumber">100</b><span>個 達成！</span></h2><div class="trophy-jar"><div class="bow">🎀</div><div class="jar full"><div class="rim"></div><div class="full-balls">🔵 🟡 🟢 🔴<br>🟢 🔴 🔵 🟡<br>🟡 🔵 🟢 🔴</div></div></div><div class="award">よくがんばった！</div><p>小さな達成を積み重ねて、目標を達成できました！</p><button class="primary restart" id="restart">つぎのコレクションをはじめる ›</button></div></section>
+</div>
+<dialog id="taskDialog"><form id="taskForm"><h3>新しい項目</h3><label>やること<input id="newName" required maxlength="40" placeholder="例：宿題をする"></label><label>もらえるビー玉<input id="newPoints" required type="number" min="1" max="100" value="5"></label><label>ビー玉の色<select id="newColor"><option value="green">みどり</option><option value="blue">あお</option><option value="yellow">きいろ</option><option value="red">あか</option><option value="purple">むらさき</option></select></label><div><button type="button" class="back" id="cancelDialog">キャンセル</button><button class="save">追加する</button></div></form></dialog>
+<div id="flyingMarble"></div><div id="toast"></div><script src="./app.js"></script></body></html>
