@@ -127,4 +127,4 @@ $$('[data-screen]').forEach(b=>b.onclick=()=>go(b.dataset.screen));$('#openAdd')
     toast('項目を追加しました');
 
 };
-$('#saveSettings').onclick=saveSettings;$('#restart').onclick=()=>{state.count=1;persist();go('home');toast('0個から新しくスタート！')};home();
+$('#saveSettings').onclick=saveSettings;$('#restart').onclick=()=>{state.count=0;persist();go('home');toast('0個から新しくスタート！')};home();
