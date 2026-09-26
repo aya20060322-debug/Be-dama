@@ -1,3 +1,26 @@
+function autoSaveSettings() {
+
+    const rows = [...document.querySelectorAll('.settings-row')];
+
+    state.tasks = rows.map(r => ({
+        name: r.querySelector('input').value.trim() || '名前なし',
+        points: Math.max(
+            1,
+            Number(r.querySelectorAll('input')[1].value) || 1
+        ),
+        color: r.querySelector('select').value
+    }));
+
+    state.goal =
+        Math.max(
+            1,
+            Number(document.querySelector('#goalInput').value) || 100
+        );
+
+    persist();
+}
+
+
 const KEY='beDamaCompleteV2';const defaults={count:0,goal:100,tasks:[{name:'宿題をする',points:5,color:'green'},{name:'読書をする（30分）',points:3,color:'blue'},{name:'お手伝いをする',points:5,color:'yellow'},{name:'運動をする',points:5,color:'red'},{name:'早く寝る（21時までに）',points:3,color:'green'}]};
 let state;try{state=JSON.parse(localStorage.getItem(KEY))||structuredClone(defaults)}catch{state=structuredClone(defaults)}
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const clean=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
